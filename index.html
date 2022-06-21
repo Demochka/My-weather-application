@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My weather app</title>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+       
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <h1 id="city-id">Kyiv, Ukraine</h1>
+        <h2>☀️ <span id = current-temp>23</span> <span class="units"><a href="" id="celsius">°C</a>/<a href="" id="fahrenheit">°F</a></span></h2>
+
+        <div class="row">
+          <div class="col-6">
+            <p>
+              Humidity: <span id = "humidity"> 55</span> % <br />
+              Wind: <span id = "wind-speed"> 2 </span> m/s <br />
+              Description: <span id = "description"></span>
+            </p>
+          </div>
+
+        <div class="col-6"> 
+          <form id="search-form">
+            <input
+              class="search-engine"
+              type="text"
+              placeholder="Enter city name here"
+              autofocus
+              autocomplete="off"
+              id="search-text-input"
+
+            />
+            <input type="submit" value="Search" class="search-button" />
+            </form>
+            
+<button id = "current-button">Current</button>
+
+
+          <div class="current-day"><strong>
+            Thursday, 19th of May |</strong><br />
+            19:00
+          </div>
+          <br />
+        </div>
+
+        <div class="row">
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><a href="">Fr</h5></a>
+                <div class="day-emoji">☀️</div>
+                <br />
+                <p class="day-temp"><strong>25°C</strong>/15°C</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><a href="">Sat</h5></a>
+                <div class="day-emoji">☀️</div>
+                <br />
+                <p class="day-temp"><strong>25°C</strong>/15°C</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><a href="">Sun</h5></a>
+                <div class="day-emoji">☀️</div>
+                <br />
+               <p class="day-temp"><strong>25°C</strong>/15°C</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><a href="">Mon</h5></a>
+                <div class="day-emoji">☀️</div>
+                <br />
+               <p class="day-temp"><strong>25°C</strong>/15°C</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><a href="">Tue</h5></a>
+                <div class="day-emoji">☀️</div>
+                <br />
+               <p class="day-temp"><strong>25°C</strong>/15°C</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><a href="">Wed</h5></a>
+                <div class="day-emoji">☀️</div>
+                <br />
+                <p class="day-temp"><strong>25°C</strong>/15°C</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="author">
+        © Coded by Maryna Mahrelo<br />
+        2022
+      </div>
+    </div>
+    <script src ="src/app.js"></script>
+  </body>
+</html>
