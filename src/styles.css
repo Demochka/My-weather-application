@@ -44,6 +44,9 @@ h2 {
 .day-temp {
   font-size: 15px;
 }
+#git-link {
+  text-align: center;
+}
 .author {
   text-align: center;
   font-family: "Courier New", Courier, monospace;
