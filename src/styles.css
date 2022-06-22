@@ -27,6 +27,9 @@ h2 {
   padding: 10px;
   margin-top: 10px;
 }
+#open-source-link {
+  color: rgba(4, 0, 10, 0.781);
+}
 .card {
   background-color: rgb(207, 224, 249);
 }
