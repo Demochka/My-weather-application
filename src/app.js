@@ -45,26 +45,16 @@ let now = new Date();
 let currentDay = document.querySelector(".current-day");
 currentDay.innerHTML = displayDate(now);
 
-// Add a search engine, display the city name on the page after the user submits the form
-
-// function showCity(event) {
-// event.preventDefault();
-// let searchInput = document.querySelector("#search-text-input");
-
-// let h1 = document.querySelector("h1");
-// h1.innerHTML = searchInput.value;
-// }
-
-// let form = document.querySelector("#search-form");
-// form.addEventListener("submit", showCity);
-
 // Display a fake temperature (i.e 23) in Celsius and add a link to convert it to Fahrenheit.
 // When clicking on it, it should convert the temperature to Fahrenheit and back to Celsius.
 
 // function changeToFahrenheit(event) {
 // event.preventDefault();
-// let tempUnit = document.querySelector("#currentTemp");
-// tempUnit.innerHTML = Math.round((23 * 9) / 5 + 32);}
+// let tempElement = document.querySelector("#currentTemp");
+// let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+// tempElement.innerHTML = Math.round(fahrenheitTemp);}
+
+// let ceisiusTemp = null;
 
 // let tempFahrenheit = document.querySelector("#fahrenheit");
 // tempFahrenheit.addEventListener("click", changeToFahrenheit);
@@ -93,26 +83,47 @@ searchForm.addEventListener("submit", searchCity);
 
 function showTemperature(response) {
   let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = Math.round(response.data.main.temp);
-
   let city = document.querySelector("#city-id");
-  city.innerHTML = response.data.name;
-
+  let humidity = document.querySelector("#humidity");
+  let windSpeed = document.querySelector("#wind-speed");
+  let description = document.querySelector("#description");
   let icon = document.querySelector("#icon");
+
+  celsiusTemp = response.data.main.temp;
+
+  currentTemp.innerHTML = Math.round(celsiusTemp);
+  city.innerHTML = response.data.name;
+  humidity.innerHTML = response.data.main.humidity;
+  windSpeed.innerHTML = Math.round(response.data.wind.speed);
+  description.innerHTML = response.data.weather[0].description;
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-
-  let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = response.data.main.humidity;
-
-  let windSpeed = document.querySelector("#wind-speed");
-  windSpeed.innerHTML = Math.round(response.data.wind.speed);
-
-  let description = document.querySelector("#description");
-  description.innerHTML = response.data.weather[0].description;
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
+
+// Convert the temperature to Fahrenheit and // Convert the temperature to Celsius
+
+function changeToFahrenheit(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#current-temp");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let tempFahrenheit = document.querySelector("#fahrenheit");
+tempFahrenheit.addEventListener("click", changeToFahrenheit);
+
+function changeToCelsius(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#current-temp");
+  tempElement.innerHTML = Math.round(celsiusTemp);
+}
+let tempCelsius = document.querySelector("#celsius");
+tempCelsius.addEventListener("click", changeToCelsius);
+
+let celsiusTemp = null;
 
 // Add a Current Location button. When clicking on it, it uses
 // the Geolocation API to get your GPS coordinates and display the city and current temperature using the OpenWeather API.
