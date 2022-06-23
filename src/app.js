@@ -1,5 +1,3 @@
-// HOMEWORK 5
-
 // Display current time
 
 function displayDate(time) {
@@ -99,6 +97,12 @@ function showTemperature(response) {
 
   let city = document.querySelector("#city-id");
   city.innerHTML = response.data.name;
+
+  let icon = document.querySelector("#icon");
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = response.data.main.humidity;

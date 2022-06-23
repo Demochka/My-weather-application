@@ -5,6 +5,7 @@ h1 {
   font-weight: 100;
   line-height: 35px;
   margin-top: 10px;
+  margin-bottom: 10px;
   margin-left: 10px;
 }
 h2 {
@@ -16,6 +17,7 @@ h2 {
   margin-left: 10px;
   margin-bottom: 40px;
 }
+
 .search-engine,
 .search-button {
   padding: 10px;
@@ -43,6 +45,10 @@ h2 {
   position: relative;
   font-size: 15px;
   top: -15px;
+}
+#celsius,
+#fahrenheit {
+  text-decoration: none;
 }
 .day-temp {
   font-size: 15px;
