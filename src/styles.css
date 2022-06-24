@@ -29,7 +29,6 @@ h2 {
 small {
   margin-left: 14px;
 }
-
 .search-engine,
 .search-button {
   padding: 10px;
@@ -64,6 +63,13 @@ small {
 #celsius,
 #fahrenheit {
   text-decoration: none;
+}
+.active {
+  color: black;
+  cursor: default;
+}
+.active:hover {
+  color: black;
 }
 .day-temp {
   font-size: 15px;

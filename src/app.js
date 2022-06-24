@@ -107,6 +107,8 @@ function showTemperature(response) {
 
 function changeToFahrenheit(event) {
   event.preventDefault();
+  tempCelsius.classList.remove("active");
+  tempFahrenheit.classList.add("active");
   let tempElement = document.querySelector("#current-temp");
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   tempElement.innerHTML = Math.round(fahrenheitTemp);
@@ -117,6 +119,8 @@ tempFahrenheit.addEventListener("click", changeToFahrenheit);
 
 function changeToCelsius(event) {
   event.preventDefault();
+  tempCelsius.classList.add("active");
+  tempFahrenheit.classList.remove("active");
   let tempElement = document.querySelector("#current-temp");
   tempElement.innerHTML = Math.round(celsiusTemp);
 }
