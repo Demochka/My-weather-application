@@ -45,34 +45,13 @@ let now = new Date();
 let currentDay = document.querySelector(".current-day");
 currentDay.innerHTML = displayDate(now);
 
-// Display a fake temperature (i.e 23) in Celsius and add a link to convert it to Fahrenheit.
-// When clicking on it, it should convert the temperature to Fahrenheit and back to Celsius.
-
-// function changeToFahrenheit(event) {
-// event.preventDefault();
-// let tempElement = document.querySelector("#currentTemp");
-// let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-// tempElement.innerHTML = Math.round(fahrenheitTemp);}
-
-// let ceisiusTemp = null;
-
-// let tempFahrenheit = document.querySelector("#fahrenheit");
-// tempFahrenheit.addEventListener("click", changeToFahrenheit);
-
-// function changeToCelsius(event) {
-// event.preventDefault();
-// let tempUnit = document.querySelector("#currentTemp");
-// tempUnit.innerHTML = Math.round((73 - 32) / 1.8);}
-// let tempCelsius = document.querySelector("#celsius");
-// tempCelsius.addEventListener("click", changeToCelsius);
-
 // Display the city name and the current temperature of the chosen city on the page after the user submits the form
 // Input City
 
 function searchCity(event) {
   event.preventDefault();
   let inputCity = document.querySelector("#search-text-input");
-  let currentCity = document.querySelector("h1");
+  let currentCity = document.querySelector("#city-id");
   currentCity.innerHTML = inputCity.value;
   let apiKey = "a7a6a78ae810e285d28f951849e2e5c3";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=${apiKey}&units=metric`;
