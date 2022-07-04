@@ -44,7 +44,8 @@ small {
   margin-top: 10px;
 }
 #open-source-link {
-  color: rgba(4, 0, 10, 0.781);
+  text-decoration: none;
+  color: rgb(79, 12, 91);
 }
 
 .units {
@@ -80,5 +81,4 @@ small {
   font-size: 14px;
   font-weight: 500;
   margin: 20px 20px;
-  color: rgb(0, 0, 0);
 }

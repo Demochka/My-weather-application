@@ -45,7 +45,7 @@ let now = new Date();
 let currentDay = document.querySelector(".current-day");
 currentDay.innerHTML = displayDate(now);
 
-// Display forecast
+// Display forecast (Template)
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
@@ -62,7 +62,7 @@ function displayForecast() {
           <div>
             <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
             alt=""
-            width="42" 
+            width="30" 
             />
           </div>
               <div class="day-temp"><span class="temp-max"><strong>25°  </strong></span><span class="temp-min">15°</span></div>           
@@ -73,10 +73,7 @@ function displayForecast() {
 
   forecastHtml = forecastHtml + `</div>`;
   forecastElement.innerHTML = forecastHtml;
-  console.log(forecastHtml);
 }
-
-//Get forecast
 
 // Display the city name and the current temperature of the chosen city on the page after the user submits the form
 // Input City
@@ -113,6 +110,8 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+
+  console.log(response.data.coord);
 }
 
 // Convert the temperature to Fahrenheit and // Convert the temperature to Celsius
@@ -163,5 +162,4 @@ function getCurrentPosition(event) {
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentPosition);
 
-// Call the function display forecast
 displayForecast();
