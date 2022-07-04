@@ -43,18 +43,7 @@ small {
 #open-source-link {
   color: rgba(4, 0, 10, 0.781);
 }
-.card {
-  background-color: rgb(207, 224, 249);
-}
-.forecast {
-  text-decoration: none;
-}
-.card:hover {
-  background-color: rgb(169, 201, 247);
-}
-.card-body {
-  text-align: center;
-}
+
 .units {
   position: relative;
   font-size: 15px;
@@ -70,6 +59,13 @@ small {
 }
 .active:hover {
   color: black;
+}
+.weather-forecast {
+  text-align: center;
+}
+
+.forecast-date {
+  text-decoration: none;
 }
 .day-temp {
   font-size: 15px;
