@@ -162,3 +162,6 @@ function getCurrentPosition(event) {
 
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentPosition);
+
+// Call the function display forecast
+displayForecast();
