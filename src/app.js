@@ -45,6 +45,39 @@ let now = new Date();
 let currentDay = document.querySelector(".current-day");
 currentDay.innerHTML = displayDate(now);
 
+// Display forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Mon", "Tue", "Wed"];
+
+  let forecastHtml = `<div class ="row">`;
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      ` 
+      <div class="col-2">            
+        <a href="" class="forecast-date">${day}</a>
+          <div>
+            <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+            alt=""
+            width="42" 
+            />
+          </div>
+              <div class="day-temp"><span class="temp-max"><strong>25°  </strong></span><span class="temp-min">15°</span></div>           
+      </div>
+                    
+`;
+  });
+
+  forecastHtml = forecastHtml + `</div>`;
+  forecastElement.innerHTML = forecastHtml;
+  console.log(forecastHtml);
+}
+
+//Get forecast
+
 // Display the city name and the current temperature of the chosen city on the page after the user submits the form
 // Input City
 
