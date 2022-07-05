@@ -78,21 +78,9 @@ function displayForecast() {
 // Display the city name and the current temperature of the chosen city on the page after the user submits the form
 // Input City
 
-function searchCity(event) {
-  event.preventDefault();
-  let inputCity = document.querySelector("#search-text-input");
-  let currentCity = document.querySelector("#city-id");
-  currentCity.innerHTML = inputCity.value;
-  let apiKey = "a7a6a78ae810e285d28f951849e2e5c3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
-}
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", searchCity);
-
 function showTemperature(response) {
   let currentTemp = document.querySelector("#current-temp");
-  let city = document.querySelector("#city-id");
+  let cityElement = document.querySelector("#city-id");
   let humidity = document.querySelector("#humidity");
   let windSpeed = document.querySelector("#wind-speed");
   let description = document.querySelector("#description");
@@ -101,7 +89,7 @@ function showTemperature(response) {
   celsiusTemp = response.data.main.temp;
 
   currentTemp.innerHTML = Math.round(celsiusTemp);
-  city.innerHTML = response.data.name;
+  cityElement.innerHTML = response.data.name;
   humidity.innerHTML = response.data.main.humidity;
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
   description.innerHTML = response.data.weather[0].description;
@@ -110,9 +98,24 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
-
-  console.log(response.data.coord);
 }
+
+function searchCity(city) {
+  let apiKey = "a7a6a78ae810e285d28f951849e2e5c3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let inputCity = document.querySelector("#search-text-input");
+  searchCity(inputCity.value);
+}
+
+searchCity("Kyiv");
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
 
 // Convert the temperature to Fahrenheit and // Convert the temperature to Celsius
 
