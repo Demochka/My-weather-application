@@ -46,7 +46,8 @@ let currentDay = document.querySelector(".current-day");
 currentDay.innerHTML = displayDate(now);
 
 // Display forecast (Template)
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Mon", "Tue", "Wed"];
@@ -78,6 +79,14 @@ function displayForecast() {
 // Display the city name and the current temperature of the chosen city on the page after the user submits the form
 // Input City
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "a7a6a78ae810e285d28f951849e2e5c3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemperature(response) {
   let currentTemp = document.querySelector("#current-temp");
   let cityElement = document.querySelector("#city-id");
@@ -98,6 +107,9 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+
+  console.log(response.data);
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -164,5 +176,3 @@ function getCurrentPosition(event) {
 
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentPosition);
-
-displayForecast();
