@@ -20,7 +20,7 @@
       <div class="weather-app">
 
         <h1 id="city-id">Here is the awesome weather App!</h1>
-<small> Wherever you go, always bring your own sunshine...</small>
+<small> Wherever you go, always bring your own sunshine!..</small>
         <h2>
 
          <img 
@@ -35,15 +35,22 @@
         </h2>
 
       <div class="row">
-          <div class="col-6">
+          <div class="col-5">
             <p>
-              Humidity: <span id = "humidity"> ...</span> % <br />
-              Wind: <span id = "wind-speed"> ... </span> m/s <br />
-              Description: <span id = "description">...</span>
+              <span class="humidity">Humidity:</span> <span id = "humidity"> ...</span> % <br />
+              <span class="wind">Wind:</span> <span id = "wind-speed"> ... </span> m/s <br />
+              <span class="description">Description:</span> <span id = "description">...</span>
             </p>
           </div>
 
-        <div class="col-6"> 
+        <div class="col-7"> 
+           <div class="last-updated"><strong>Last updated:</strong></div>
+          
+          <div class="current-day">
+            Thursday, 19th of May |<br />
+            19:00
+          </div>
+
           <form id="search-form">
             <input
               class="search-engine"
@@ -52,16 +59,13 @@
               autofocus
               autocomplete="off"
               id="search-text-input"
-
             />
-            <input type="submit" value="Search" class="search-button" />
-            </form>
-              <button id = "current-button">Current location</button>
-
-          <div class="current-day"><strong>
-            Thursday, 19th of May |</strong><br />
-            19:00
-          </div>
+             <input type="submit" value="🔍" class="search-button" />
+            
+             <button id = "current-button">Your location</button>
+          </form>
+             
+          <br />
           <br />
         </div>
 
@@ -74,7 +78,7 @@
         <div class="author">
           <a href="https://github.com/Demochka/My-weather-application/blob/main/index.html" target="_blank" id = "open-source-link">Open-sourced code</a>
           
-        <span>by Maryna Mahrelo</span> 
+        <span><strong>by Maryna Mahrelo</strong></span> 
         <br />
       2022
       </div> 

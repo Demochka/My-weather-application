@@ -66,14 +66,14 @@ function displayForecast(response) {
         forecastHtml +
         ` 
        <div class="col-2">            
-         <a href="" class="forecast-date">${formatDay(forecastDay.dt)}</a>
+         <div class="forecast-date">${formatDay(forecastDay.dt)}</div>
            <div>
               <img 
                src="http://openweathermap.org/img/wn/${
                  forecastDay.weather[0].icon
                }@2x.png"
                alt=""
-               width="30" 
+               width="40" 
               />
            </div>
               <div class="day-temp">
